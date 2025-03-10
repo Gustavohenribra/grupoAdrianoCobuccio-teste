@@ -85,3 +85,37 @@ wallet-app/
 └── package.json
 ```
 
+# Documentação dos Endpoints da API:
+
+1. API de Usuários:
+   - POST /users/register
+        Descrição: Registra um novo usuário.
+        Autenticação: Não requerida.
+   - GET /users
+        Descrição: Retorna a lista de todos os usuários.
+        Autenticação: Requer (Bearer token).
+   - GET /users/:id
+        Descrição: Retorna os detalhes de um usuário específico pelo ID.
+        Autenticação: Requer (Bearer token).
+2. API de Autenticação:
+   - POST /auth/login
+        Descrição: Autentica o usuário e gera um token JWT.
+        Autenticação: Não requerida.
+3. API de Transações:
+   - POST /transactions/transfer
+        Descrição: Realiza a transferência de saldo do usuário autenticado para outro.
+        Autenticação: Requer (Bearer token).
+   - POST /transactions/reverse/:id
+        Descrição: Reverte uma transação específica (por inconsistência ou solicitação do usuário).
+        Autenticação: Requer (Bearer token).
+   - POST /transactions/deposit
+        Descrição: Realiza um depósito de saldo na conta do usuário autenticado.
+        Autenticação: Requer (Bearer token).
+   - GET /transactions
+        Descrição: Lista todas as transações.
+        Autenticação: Requer (Bearer token).
+   - GET /transactions/:id
+        Descrição: Retorna os detalhes de uma transação específica pelo ID.
+        Autenticação: Requer (Bearer token).
+
+Mais informações na documentação utilizando swagger: http://localhost:3000/api
