@@ -1,0 +1,37 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=2b.12.KIX.Kx2y.Qp7B4.uvOM3aeOF5sIj0Vrw4xov/W0x3c5Y7YtXb7Y1e
+      - DB_DATABASE=walletdb
+      - JWT_SECRET=b34bba9ec1f85bf2d0fc523bf941ec2188affbb7c3da70677ceb7551dc36b7550a203e76e299f4bdda23049e86498170165947a33d535cff6a0641ca1f35916d
+      - JWT_EXPIRES_IN=3600s
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres:16
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 2b.12.KIX.Kx2y.Qp7B4.uvOM3aeOF5sIj0Vrw4xov/W0x3c5Y7YtXb7Y1e
+      POSTGRES_DB: walletdb
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      retries: 5
+      timeout: 5s
+
+volumes:
+  pgdata:
