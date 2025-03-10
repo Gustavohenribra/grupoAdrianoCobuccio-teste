@@ -5,6 +5,7 @@ import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { TransactionsModule } from './transactions/transactions.module';
 import { ensureEnvVar } from './common/ensure.env';
+import { RateLimiterModule } from 'nestjs-rate-limiter';
 
 @Module({
   imports: [
@@ -34,6 +35,10 @@ import { ensureEnvVar } from './common/ensure.env';
           synchronize: true,
         };
       },
+    }),
+    RateLimiterModule.register({
+      points: 15,
+      duration: 60,
     }),
     UsersModule,
     AuthModule,
