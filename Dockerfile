@@ -2,9 +2,13 @@ FROM node:20-alpine
 
 WORKDIR /usr/src/app
 
-COPY package.json package-lock.json ./ 
+ENV NODE_ENV=production
+
+COPY package.json package-lock.json ./
 
 RUN npm ci
+
+RUN npm i -g @nestjs/cli
 
 COPY . .
 
