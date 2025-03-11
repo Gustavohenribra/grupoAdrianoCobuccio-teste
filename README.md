@@ -119,3 +119,6 @@ wallet-app/
         Autenticação: Requer (Bearer token).
 
 Mais informações na documentação utilizando swagger: http://localhost:3000/api
+
+Se preferir, você pode importar a coleção do Insomnia/Postman para testar os endpoints diretamente.
+O arquivo da coleção já está incluído no projeto: grupo_adriano_cobuccio_api_insomnia_postman.json
