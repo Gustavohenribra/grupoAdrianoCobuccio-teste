@@ -6,6 +6,7 @@ import { AuthModule } from './auth/auth.module';
 import { TransactionsModule } from './transactions/transactions.module';
 import { ensureEnvVar } from './common/ensure.env';
 import { RateLimiterModule } from 'nestjs-rate-limiter';
+import { AppController } from './app.controller';
 
 @Module({
   imports: [
@@ -44,5 +45,6 @@ import { RateLimiterModule } from 'nestjs-rate-limiter';
     AuthModule,
     TransactionsModule,
   ],
+  controllers: [AppController],
 })
 export class AppModule {}
