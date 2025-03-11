@@ -49,7 +49,7 @@ npm install
 ### Subir banco de dados com Docker e a aplicação
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 A API estará disponível em http://localhost:3000 e a documentação Swagger em http://localhost:3000/api.
