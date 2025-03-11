@@ -25,6 +25,16 @@
 - Node.js (v20 ou superior)
 - Docker e Docker Compose
 
+### Clonar o Repositório
+```bash
+git clone https://github.com/Gustavohenribra/grupoAdrianoCobuccio-teste.git
+```
+
+###  Acessar a Pasta do Projeto
+```bash
+cd grupoAdrianoCobuccio-teste
+```
+
 ### Configurar Variáveis de Ambiente
 
 ```bash
@@ -36,16 +46,10 @@ cp .env.example .env
 ```bash
 npm install
 ```
-
-### Rodar local
-```bash
-npm run start:dev
-```
-
-### Subir aplicação com Docker
+### Subir banco de dados com Docker e a aplicação
 
 ```bash
-docker compose up --build -d
+docker-compose up -d
 ```
 
 A API estará disponível em http://localhost:3000 e a documentação Swagger em http://localhost:3000/api.
